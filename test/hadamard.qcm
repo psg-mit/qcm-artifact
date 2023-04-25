@@ -1,0 +1,13 @@
+add r1 i        ; copy i into r1
+rjne $-10 r1 i  ; if r1 != i, come from end of loop
+jz $+10 r1      ; if r1 == 0, break
+u H c           ; Hadamard on bit 0 of c
+jz $+3 c        ; if c == 0, goto l7
+add x $1        ; add 1 to x
+jmp $+3         ; break
+rjmp $+3        ; come from l5
+radd x $1       ; subtract 1 from x
+rjnz $+3 c      ; if c != 0, come from l6
+radd r1 $1      ; subtract 1 from r1
+jmp $-10        ; goto start of loop
+rjmp $+10       ; come from l2

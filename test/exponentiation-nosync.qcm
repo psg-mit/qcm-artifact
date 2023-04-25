@@ -1,0 +1,8 @@
+add res $1     ; copy 1 into res
+add r1 y       ; copy y into r1
+rjne $-4 r1 y  ; if r1 != y, come from end of loop
+jz $+4 r1      ; if r1 == 0, break
+mul res x      ; multiply res by x
+radd r1 $1     ; decrement r1
+jmp $-4        ; goto start of loop
+rjmp $+4       ; come from l2

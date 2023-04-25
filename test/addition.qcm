@@ -1,0 +1,7 @@
+jnz $+3 x  ; if x != 0, goto l2
+add y y    ; add y to y
+jmp $+3    ; jump to l3
+rjmp $+3   ; come from l0
+add y x    ; add x to y
+rjz $+3 x  ; if x = 0 then come from l1
+nop        ; no-op
