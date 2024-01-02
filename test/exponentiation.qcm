@@ -1,13 +1,13 @@
-add res $1       ; copy 1 into res
-add r1 max       ; copy max into r1
-rjne $-9 r1 max  ; if r1 != max, come from end of loop
-jz $+9 r1        ; if r1 == 0, break
-jg $+3 r1 y      ; if r1 > y, goto l7
-mul res x        ; multiply res by x
-jmp $+3          ; break
-rjmp $+3         ; come from l5
-nop              ; no-op padding
-rjle $+3 r1 y    ; if r1 <= y, come from l6
-radd r1 $1       ; decrement r1
-jmp $-9          ; goto start of loop
-rjmp $+9         ; come from l2
+add res $1
+add r1 max
+rjne $-9 r1 max
+jz $+9 r1
+jg $+3 r1 y
+mul res x
+jmp $+3
+rjmp $+3
+nop
+rjle $+3 r1 y
+radd r1 $1
+jmp $-9
+rjmp $+9

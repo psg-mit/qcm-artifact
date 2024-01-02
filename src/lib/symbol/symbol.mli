@@ -1,7 +1,3 @@
-module Table = Core.Int.Table
-module Map = Core.Int.Map
-module Set = Core.Int.Set
-
 type t = int [@@deriving show, eq, sexp_of]
 
 val get_sym : string -> t

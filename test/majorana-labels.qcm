@@ -1,0 +1,12 @@
+    get i r1 x    ; put bit i of x into r1
+    u Y r1        ; apply Y gate to r1
+    rget i r1 x   ; put r1 into bit i of x
+    add r1 i      ; copy i into r1
+l1: rjne l3 r1 i  ; if r1 != i, come from l3
+l2: jz l4 r1      ; if r1 == 0, break
+    radd r1 $1    ; subtract 1 from r1
+    get r1 r2 x   ; put bit r1 of x into r2
+    u Z r2        ; apply Z gate to r2
+    rget r1 r2 x  ; put r2 into bit r1 of x
+l3: jmp l1        ; goto start of loop
+l4: rjmp l2       ; come from l2

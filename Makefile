@@ -1,9 +1,6 @@
 all:
 	rm -f ./qcm; dune build && ln -s ./_build/default/src/main.exe ./qcm
 
-test:
-	dune build src/test && ./_build/default/src/test/test.exe
-
 clean:
 	dune clean && rm -f ./qcm
 

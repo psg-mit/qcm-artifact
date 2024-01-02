@@ -1,0 +1,7 @@
+l0: jnz l2 x  ; if x != 0, goto l2
+    add y y   ; add y to y
+l1: jmp l3    ; jump to l3
+l2: rjmp l0   ; come from l0
+    add y x   ; add x to y
+l3: rjz l1 x  ; if x = 0, come from l1
+    nop       ; no-op

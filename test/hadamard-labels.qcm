@@ -1,0 +1,13 @@
+    add r1 i     ; copy i into r1
+l1: rjne l3 r1 i ; if r1 != i, come from l3
+l2: jz l4 r1     ; if r1 == 0, break
+    u H c        ; apply H gate to c
+l5: jz l7 c      ; if c == 0, goto l7
+    add x $1     ; add 1 to x
+l6: jmp l8       ; break
+l7: rjmp l5      ; come from l5
+    radd x $1    ; subtract 1 from x
+l8: rjnz l6 c    ; if c != 0, come from l6
+    radd r1 $1   ; subtract 1 from r1
+l3: jmp l1       ; goto start of loop
+l4: rjmp l2      ; come from l2

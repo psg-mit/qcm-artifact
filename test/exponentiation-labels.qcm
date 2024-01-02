@@ -1,0 +1,13 @@
+    add res $1     ; copy 1 into res
+    add r1 max     ; copy max into r1
+l1: rjne l3 r1 max ; if r1 != max, come from l3
+l2: jz l4 r1       ; if r1 == 0, break
+l5: jg l7 r1 y     ; if r1 > y, goto l7
+    mul res x      ; multiply res by x
+l6: jmp l8         ; break
+l7: rjmp l5        ; come from l5
+    nop            ; no-op padding
+l8: rjle l6 r1 y   ; if r1 <= y, come from l6
+    radd r1 $1     ; decrement r1
+l3: jmp l1         ; goto start of loop
+l4: rjmp l2        ; come from l2

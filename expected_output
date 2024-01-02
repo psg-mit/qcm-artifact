@@ -1,0 +1,39 @@
+./qcm -r "x=3,y=0" -t 5 test/addition.qcm
+(1.000000 + 0.000000i) |pc:7,br:1,x:3,y:3>
+state is synchronized
+./qcm -r "x=0,y=3" -t 5 test/addition.qcm
+(1.000000 + 0.000000i) |pc:7,br:1,x:0,y:6>
+state is synchronized
+./qcm -r "x=3,y=0" -r "x=0,y=3" -t 5 test/addition.qcm
+(0.707107 + 0.000000i) |pc:7,br:1,x:0,y:6> + (0.707107 + 0.000000i) |pc:7,br:1,x:3,y:3>
+state is synchronized
+./qcm -u "x" -r "y=1" -t 5 test/addition.qcm
+(0.250000 + 0.000000i) |pc:7,br:1,x:0,y:2> + (0.250000 + 0.000000i) |pc:7,br:1,x:1,y:2> + (0.250000 + 0.000000i) |pc:7,br:1,x:2,y:3> + (0.250000 + 0.000000i) |pc:7,br:1,x:3,y:4> + (0.250000 + 0.000000i) |pc:7,br:1,x:4,y:5> + (0.250000 + 0.000000i) |pc:7,br:1,x:5,y:6> + (0.250000 + 0.000000i) |pc:7,br:1,x:6,y:7> + (0.250000 + 0.000000i) |pc:7,br:1,x:7,y:8> + (0.250000 + 0.000000i) |pc:7,br:1,x:8,y:9> + (0.250000 + 0.000000i) |pc:7,br:1,x:9,y:10> + (0.250000 + 0.000000i) |pc:7,br:1,x:10,y:11> + (0.250000 + 0.000000i) |pc:7,br:1,x:11,y:12> + (0.250000 + 0.000000i) |pc:7,br:1,x:12,y:13> + (0.250000 + 0.000000i) |pc:7,br:1,x:13,y:14> + (0.250000 + 0.000000i) |pc:7,br:1,x:14,y:15> + (0.250000 + 0.000000i) |pc:7,br:1,x:15,y:16>
+state is synchronized
+./qcm -r "res=0,r1=0,x=2,y=1" -t 10 test/exponentiation-nosync.qcm
+(1.000000 + 0.000000i) |pc:8,br:1,res:2,r1:0,y:1,x:2>
+state is synchronized
+./qcm -r "res=0,r1=0,x=2,y=2" -t 15 test/exponentiation-nosync.qcm
+(1.000000 + 0.000000i) |pc:8,br:1,res:4,r1:0,y:2,x:2>
+state is synchronized
+./qcm -r "res=0,r1=0,x=2,y=1" -r "res=0,r1=0,x=2,y=2" -t 10 test/exponentiation-nosync.qcm
+(0.707107 + 0.000000i) |pc:5,br:1,res:4,r1:1,y:2,x:2> + (0.707107 + 0.000000i) |pc:8,br:1,res:2,r1:0,y:1,x:2>
+state is not synchronized
+./qcm -r "res=0,r1=0,x=2,y=2,max=2" -t 21 test/exponentiation.qcm
+(1.000000 + 0.000000i) |pc:13,br:1,res:4,r1:0,max:2,y:2,x:2>
+state is synchronized
+./qcm -r "res=0,r1=0,x=2,y=1,max=2" -t 21 test/exponentiation.qcm
+(1.000000 + 0.000000i) |pc:13,br:1,res:2,r1:0,max:2,y:1,x:2>
+state is synchronized
+./qcm -r "res=0,r1=0,x=2,y=2,max=2" -r "res=0,r1=0,x=2,y=1,max=2" -t 21 test/exponentiation.qcm
+(0.707107 + 0.000000i) |pc:13,br:1,res:2,r1:0,max:2,y:1,x:2> + (0.707107 + 0.000000i) |pc:13,br:1,res:4,r1:0,max:2,y:2,x:2>
+state is synchronized
+./qcm -r "r1=0,x=3,i=3,c=0" -t 31 test/hadamard.qcm
+(0.353553 + 0.000000i) |pc:13,br:1,r1:0,i:3,c:0,x:0> + (0.707107 + 0.000000i) |pc:13,br:1,r1:0,i:3,c:0,x:2> + (-0.353553 + 0.000000i) |pc:13,br:1,r1:0,i:3,c:0,x:4> + (0.353553 + 0.000000i) |pc:13,br:1,r1:0,i:3,c:1,x:2> + (0.000000 + 0.000000i) |pc:13,br:1,r1:0,i:3,c:1,x:4> + (0.353553 + 0.000000i) |pc:13,br:1,r1:0,i:3,c:1,x:6>
+state is synchronized
+./qcm -r "r1=0,r2=0,i=0,x=3" -t 5 test/majorana.qcm
+(0.000000 + -1.000000i) |pc:5,br:1,i:0,r1:0,x:2,r2:0>
+state is synchronized
+./qcm -r "r1=0,r2=0,i=1,x=3" -t 14 test/majorana.qcm
+(0.000000 + 1.000000i) |pc:12,br:1,i:1,r1:0,x:1,r2:0>
+state is synchronized
